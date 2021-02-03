@@ -25,8 +25,8 @@ function App() {
           <PrivateRoute exact path="/" component={Campaigns} />
           <PrivateRoute path="/app/team" component={Team} />
           <PrivateRoute path="/app/university" component={University} />
-          <PrivateRoute path="/update-profile" component={UpdateProfile} />
           <PrivateRoute exact path="/app/accaunt" component={Dashboard} />
+          <PrivateRoute path="/update-profile" component={UpdateProfile} />
           <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
             <div className="w-100" style={{ maxWidth: '400px' }}>
               <Route path="/signup" component={Signup} />

@@ -18,6 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Link } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
+import logo from '../../images/leadIQ.svg'
+import SettingsPowerIcon from '@material-ui/icons/SettingsPower';
 
 const drawerWidth = 240;
 
@@ -47,15 +50,25 @@ export default function PersistentDrawerLeft() {
                 })}
             >
                 <Toolbar>
-                    <IconButton
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <h4>Navbar</h4>
+                    <Grid container alignItems="center" justify="space-between" style={{padding: '0 100px'}}>
+                        <Grid>
+                            <IconButton
+                                aria-label="open drawer"
+                                onClick={handleDrawerOpen}
+                                edge="start"
+                                // className={clsx(classes.menuButton, open && classes.hide)}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Grid>
+                        <Grid>
+                            {/* <div style={{marginLeft: '100px', }}>
+                                <img style={{width: '120px'}} src={logo} alt="logo" />
+                            </div> */}
+                            <Link to="/app/accaunt"><SettingsPowerIcon/></Link>
+                        </Grid>
+                    </Grid>
+
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -69,30 +82,30 @@ export default function PersistentDrawerLeft() {
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
-                        {/* {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />} */}
-                        <MenuIcon />
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {/* <MenuIcon /> */}
                     </IconButton>
                 </div>
                 <Divider />
                 {/* <ListItemText primary={text} /> */}
                 <List>
-                    <Link to="/" >
+                    <Link className={classes.list} to="/" >
                         <ListItem button>
                             campaigns
                         </ListItem>
                     </Link>
-                    <Link to="/app/team" >
+                    <Link  className={classes.list} to="/app/team" >
                         <ListItem button>
                             Team
                         </ListItem>
                     </Link>
 
-                    <Link to="/app/university" >
+                    <Link  className={classes.list} to="/app/university" >
                         <ListItem button>
                             University
                         </ListItem>
                     </Link>
-                    <Link to="/app/accaunt" >
+                    <Link  className={classes.list} to="/app/accaunt" >
                         <ListItem button>
                             Accaunt
                         </ListItem>
@@ -120,20 +133,20 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-    appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
+    // appBar: {
+    //     transition: theme.transitions.create(['margin', 'width'], {
+    //         easing: theme.transitions.easing.sharp,
+    //         duration: theme.transitions.duration.leavingScreen,
+    //     }),
+    // },
+    // appBarShift: {
+    //     width: `calc(100% - ${drawerWidth}px)`,
+    //     marginLeft: drawerWidth,
+    //     transition: theme.transitions.create(['margin', 'width'], {
+    //         easing: theme.transitions.easing.easeOut,
+    //         duration: theme.transitions.duration.enteringScreen,
+    //     }),
+    // },
     menuButton: {
         marginRight: theme.spacing(2),
     },
@@ -155,20 +168,9 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: -drawerWidth,
-    },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
-    },
+    list: {
+        textTransform: 'uppercase',
+        color: '#999',
+        fontWeight: '600'
+    }
 }));

@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useRef, useState } from 'react';
-import { Alert, Button, Card, Form } from 'react-bootstrap';
+import { Alert, Button, Card, Container, Form } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+import LeadApp from '../app/1-LeadApp/LeadApp';
 import { useAuth } from '../contexts/AuthContext';
 
-export default function UpdateProfile(){
+export default function UpdateProfile() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -24,11 +25,11 @@ export default function UpdateProfile(){
         const promises = []
         setLoading(true)
         setError('')
-        if(emailRef.current.value !== currentUser.email){
+        if (emailRef.current.value !== currentUser.email) {
             promises.push(updateEmail(emailRef.current.value))
         }
 
-        if(passwordRef.current.value){
+        if (passwordRef.current.value) {
             promises.push(updatePassword(passwordRef.current.value))
         }
 
@@ -36,38 +37,44 @@ export default function UpdateProfile(){
             history.push("/")
         }).catch(() => {
             setError('Fail to update account')
-        }).finally(() =>{
+        }).finally(() => {
             setLoading(false)
         })
-        
+
     }
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Update Profile</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit} >
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" required ref={emailRef} defaultValue={currentUser.email} />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} placeholder="Leave blank to keep the same" />
-                        </Form.Group>
-                        <Form.Group id="password-confirm">
-                            <Form.Label>Password confirmation</Form.Label>
-                            <Form.Control type="password" ref={passwordConfirmRef} placeholder="Leave blank to keep the same" />
-                        </Form.Group>
-                        <Button type="submit" disabled={loading} className="w-100" >Update</Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancel</Link>
-            </div>
+            <LeadApp>
+                <Container className="d-flex justify-content-center" style={{ minHeight: '100vh' }}>
+                    <div className="w-100" style={{ maxWidth: '400px' }}>
+                        <Card>
+                            <Card.Body>
+                                <h2 className="text-center mb-4">Update Profile</h2>
+                                {error && <Alert variant="danger">{error}</Alert>}
+                                <Form onSubmit={handleSubmit} >
+                                    <Form.Group id="email">
+                                        <Form.Label>Email</Form.Label>
+                                        <Form.Control type="email" required ref={emailRef} defaultValue={currentUser.email} />
+                                    </Form.Group>
+                                    <Form.Group id="password">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="password" ref={passwordRef} placeholder="Leave blank to keep the same" />
+                                    </Form.Group>
+                                    <Form.Group id="password-confirm">
+                                        <Form.Label>Password confirmation</Form.Label>
+                                        <Form.Control type="password" ref={passwordConfirmRef} placeholder="Leave blank to keep the same" />
+                                    </Form.Group>
+                                    <Button type="submit" disabled={loading} className="w-100" >Update</Button>
+                                </Form>
+                            </Card.Body>
+                        </Card>
+                        <div className="w-100 text-center mt-2">
+                            <Link to="/">Cancel</Link>
+                        </div>
+                    </div>
+                </Container>
+            </LeadApp>
         </>
     );
 };
