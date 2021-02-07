@@ -16,6 +16,10 @@ import UpdateProfile from "./UpdateProfile";
 import Team from "../app/4-Team/Team";
 import University from "../app/5-University/University";
 import Campaigns from "../app/3-Campaigns/Campaigns";
+import Lead from "../app/7-Leads/Lead";
+import Lead2 from "../app/7-Leads/Lead2";
+import Bangla from "../app/8-Stripe/Stripe";
+import Data from "../app/9-Data/Data";
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
       <AuthProvider>
         <Switch>
           <PrivateRoute exact path="/" component={Campaigns} />
+          <PrivateRoute path="/app/lead" component={Lead} />
+          <PrivateRoute path="/app/lead2" component={Lead2} />
+          <PrivateRoute path="/app/stripe" component={Bangla} />
+          <PrivateRoute path="/app/data" component={Data} />
           <PrivateRoute path="/app/team" component={Team} />
           <PrivateRoute path="/app/university" component={University} />
           <PrivateRoute exact path="/app/accaunt" component={Dashboard} />

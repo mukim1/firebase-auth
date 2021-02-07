@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+/*  START OF GLOBAL RESPONSIVE LAYOUT */
+/* 00d586 */
+
+.dsk{
+  display: block;
+}
+.phn{
+  display: none;
+}
+@media (max-width: 900px){
+  .dsk{
+    display: none;
+  }
+  .phn{
+    display: block;
+  }
+}
+/* END OF GLOBAL RESPONSIVE STYLING */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    position: relative;
+    background-color: #fff;
+    font-family: 'Merriweather', serif !important;
+    max-width: 1600px;
+    margin: auto;
+    box-sizing: border-box !important;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img{
+  width: 100%;
+}
+h1{
+  font-size: 38px;
+  color: #063c4dd8;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+p{
+  margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: Roboto, sans-serif;
+    color: #063c4d;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Merriweather', serif;
+}
+/* 00d586 */
+@media (max-width: 900px){
+  h1{
+    font-size: 32px;
+  }
+  p{
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px){
+
+}
+

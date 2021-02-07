@@ -94,6 +94,16 @@ export default function PersistentDrawerLeft() {
                             campaigns
                         </ListItem>
                     </Link>
+                    <Link className={classes.list} to="/app/lead" >
+                        <ListItem button>
+                            lead
+                        </ListItem>
+                    </Link>
+                    <Link  className={classes.list} to="/app/lead2" >
+                        <ListItem button>
+                            leadtwo
+                        </ListItem>
+                    </Link>
                     <Link  className={classes.list} to="/app/team" >
                         <ListItem button>
                             Team
